@@ -1,4 +1,6 @@
-﻿import codecs
+﻿# coding: utf-8
+
+import codecs
 import random
 
 uf = codecs.open("LT_list.txt", "r", "shift-jis")
