@@ -1,20 +1,19 @@
 ﻿# coding: utf-8
 
-import codecs
 import random
 
-uf = codecs.open("LT_list.txt", "r", "shift-jis")
-list = uf.readlines()
-uf.close()
+f = open("LT_list.txt", "r", encoding = "shift_jis")
+list = f.readlines()
+f.close()
 
 length = len(list)
 if length != 0:
     index = random.randint(0, length - 1)
-    print((u"最後は " if length == 1 else u"次は ") + list[index].replace(u"\r\n", u"") + u" です(っ´∀｀)っ")
+    print(("最後は " if length == 1 else "次は ") + list[index].replace("\n", "") + " です(っ´∀｀)っ")
     del list[index]
 
-    uf = codecs.open("LT_list.txt", "w", "shift-jis")
-    uf.writelines(list)
-    uf.close()
+    f = open("LT_list.txt", "w", encoding = "shift_jis")
+    f.writelines(list)
+    f.close()
 
-raw_input("")
+input("")
