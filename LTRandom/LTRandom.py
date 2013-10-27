@@ -3,8 +3,10 @@
 import random
 
 f = open("LT_list.txt", "r", encoding = "shift_jis")
-list = f.readlines()
-f.close()
+try:
+    list = f.readlines()
+finally:
+    f.close()
 
 length = len(list)
 if length != 0:
@@ -13,7 +15,9 @@ if length != 0:
     del list[index]
 
     f = open("LT_list.txt", "w", encoding = "shift_jis")
-    f.writelines(list)
-    f.close()
+    try:
+        f.writelines(list)
+    finally:
+        f.close()
 
 input("")
