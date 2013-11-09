@@ -2,11 +2,8 @@
 
 import random
 
-f = open("LT_list.txt", "r", encoding = "shift_jis")
-try:
+with open("LT_list.txt", "r", encoding = "shift_jis") as f:
     list = f.readlines()
-finally:
-    f.close()
 
 length = len(list)
 if length != 0:
@@ -14,10 +11,7 @@ if length != 0:
     print(("最後は " if length == 1 else "次は ") + list[index].replace("\n", "") + " です(っ´∀｀)っ")
     del list[index]
 
-    f = open("LT_list.txt", "w", encoding = "shift_jis")
-    try:
+    with open("LT_list.txt", "w", encoding = "shift_jis") as f:
         f.writelines(list)
-    finally:
-        f.close()
 
 input("")
